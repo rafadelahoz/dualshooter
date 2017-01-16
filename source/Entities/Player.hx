@@ -27,7 +27,9 @@ class Player extends Entity
 
         id = Id;
 
-        makeGraphic(8, 8, (id == 0 ? 0xFF00FF4D : 0xFFFF004D));
+        makeGraphic(12, 12, 0x00000000); //
+        FlxSpriteUtil.drawCircle(this, width/2, height/2, width/2, 0xFFFFFFFF);
+        color = (id == 0 ? 0xFF00FF4D : 0xFFFF004D);
 
         distance = 32;
 
@@ -107,10 +109,11 @@ class Player extends Entity
     {
         super.draw();
 
-        var midpoint : FlxPoint = getMidpoint();
+        // Debug draw angle to other player
+        /*var midpoint : FlxPoint = getMidpoint();
         FlxSpriteUtil.drawLine(canvas, midpoint.x, midpoint.y,
                                 midpoint.x + Math.cos(radAngle + Math.PI) * distance,
                                 midpoint.y + Math.sin(radAngle + Math.PI) * distance,
-                                lineStyle);
+                                lineStyle);*/
     }
 }
